@@ -1,7 +1,7 @@
 <?php
 /*
-Plugin Name: Infinite Scroll
-Description: Automatically loads the next page of posts into the bottom of the initial page.
+Plugin Name: Infinite Scroll (CF MODIFIED)
+Description: Automatically loads the next page of posts into the bottom of the initial page.  <srong>CF MODIFIED:</strong> Changed footer template to run JS at document ready instead of immediately.
 Version: 2.6.2
 Author: Beaver6813, dirkhaim, Paul Irish, benbalter, Glenn Nelson
 Author URI:
@@ -133,7 +133,7 @@ class Infinite_Scroll {
 		//sanity check
 		if ( !array_key_exists( $options['behavior'], $this->behaviors ) )
 		  return _doing_it_wrong( 'Infinite Scroll behavior', "Behavior {$options['behavior']} not found", $this->version );
-		
+
 		$src = 'behaviors/' . $this->behaviors[ $options['behavior'] ]['src'] . '.js';
 		wp_enqueue_script( $this->slug . "-behavior", plugins_url( $src, __FILE__ ), array( "jquery", $this->slug ), $this->version, true );
 
